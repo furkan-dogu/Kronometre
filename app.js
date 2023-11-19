@@ -74,10 +74,9 @@ reset.addEventListener("click", () => {
     saniye.textContent = "00"
     salise.textContent = "00"
     sayac = 0
+    document.getElementById("derece-body").textContent = ""
+    sayac2 = 0
 })
-
-// https://randomuser.me/api/  
-// https://restcountries.com/v3.1/all
 
 let times = []
 let sayac2 = 0
