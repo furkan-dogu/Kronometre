@@ -43,6 +43,7 @@ const startKronometre = () => {
 
 let sayac = 0
 let startStop = ""
+let isRunning = false;
 
 playPause.addEventListener("click", () => {
     sayac++
@@ -50,10 +51,14 @@ playPause.addEventListener("click", () => {
         play.style.display = "none"
         pause.style.display = "block"
         startStop = startKronometre()
+        tur.removeAttribute("disabled");
+        isRunning = true;
     } else {
         play.style.display = "block"
         pause.style.display = "none"
         pauseKronometre()
+        tur.setAttribute("disabled", true);
+        isRunning = false;
     }
 })
 
@@ -77,15 +82,19 @@ reset.addEventListener("click", () => {
     document.getElementById("derece-body").textContent = ""
     sayac2 = 0
     times = []
+    tur.setAttribute("disabled", true);
+    isRunning = false;
 })
 
 let times = []
 let sayac2 = 0
 
 tur.addEventListener("click", () => {
-    times.push(time.textContent)
-    dereceDomaYaz()
-    sayac2++
+    if (isRunning) {
+        times.push(time.textContent);
+        dereceDomaYaz();
+        sayac2++;
+    }
 })
 
 //! dereceyi doma yazdırma
