@@ -76,6 +76,7 @@ reset.addEventListener("click", () => {
     sayac = 0
     document.getElementById("derece-body").textContent = ""
     sayac2 = 0
+    times = []
 })
 
 let times = []
